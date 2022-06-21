@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank you</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <div class="container">
+            <form id="form1" onsubmit="return check_form();">
+                <h1>Thank you</h1>
+            <p id="msg"></p>
+                <input type="number" id="u_opt" placeholder="Enter opt">
+                <input type="submit"  class="btn" value="SUBMIT">
+            </form>
+        </div>
+    
+        <script>
+             const msg = document.getElementById("msg");
+        let f = localStorage.getItem('fname');
+        let em = localStorage.getItem('Email_id')
+        let fn = f.split(' ')
+
+        msg.innerText = `Dear ${fn[0]},
+             Thank you for your inquiry.A 4 digit verification number has been sent to your email ${em}.
+             Please enter it in the following box and submit for confirmation:
+             Attempt :
+             `
+
+        var attempts = 3;
+        let rn = Math.floor(Math.random() * 100) + 1000
+        console.log(rn)
+
+        function check_form() {
+            var u_opt = document.getElementById("u_opt").value;
+            if (u_opt == rn) {
+                alert("Success");
+                document.getElementById("u_opt").value = ""
+                var url = "http://pixel6.co/"
+                window.location = url;
+            }
+            else {
+                if (attempts == 0) {
+                    alert("No  Attempts Available")
+                    document.write("404 error")
+                }
+                else {
+                    attempts = attempts - 1;
+                    alert("OTP is wrong Now Only " + attempts + " Attempts Available");
+                    if (attempts == 0) {
+                        document.getElementById("form1").disabled = true;
+                    
+                    }
+                }
+            }
+
+            return false;
+        }
+        </script>        
+    </body>
+</html>
+
+
+

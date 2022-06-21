@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="conainer">
+        <form action="thanks.html" id="form">
+            <h2>Loan Form</h2>
+            
+            <div>
+                <input type="text" id="fname" name="fname" placeholder="Full Name" required>
+            </div>
+           <div>
+               <input type="email" id="email" name="email" placeholder="Email" required>
+           </div>
+            <div>
+                <input type="text" id="pan" name="pan" placeholder="Pan Number" maxlength="10" required>
+            </div>
+            <div>
+                <input type="number" id="amount" name="amount" placeholder="Loan Amount" maxlength="9" required>
+            </div>
+            <div>
+                <input type="text" id="word" disabled>
+            </div>
+            <div class="captch">
+                <div id="gen_captcha">
+                    Add <span id="n1">1</span>
+                    +
+                    <span id="n2">20</span>
+                </div>
+                <div class="Ucaptcha">
+                    <input type="number" placeholder="Enter captcha" id="user_captcha" required>
+                </div>
+            </div>
+    
+            <div class="btn">
+                    <button id="new_captch" onclick="captch()">New Captcha</button>
+                    <button type="submit" id="submit" >Submit</button>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
